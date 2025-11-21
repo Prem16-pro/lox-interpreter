@@ -79,7 +79,7 @@ class Scanner{
             while(isDigit(peek())) advance();
         }
         addToken(NUMBER,
-            Double.parseDouble(source.substring(start,current));
+            Double.parseDouble(source.substring(start,current))
         );
     }
 
