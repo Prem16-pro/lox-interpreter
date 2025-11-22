@@ -8,11 +8,15 @@ The source code is organized inside the `src` directory following standard Java 
 src/
  └── com/
       └── craftinginterpreters/
-           └── lox/
-                ├── Lox.java      # Main entry point (REPL & File runner)
-                ├── Scanner.java  # Tokenizer/Lexer
-                ├── Token.java    # Token definitions
-                └── TokenType.java
+           ├── lox/
+           │    ├── Expr.java         # (New) Auto-generated AST classes
+           │    ├── Lox.java          # Main entry point
+           │    ├── Scanner.java      # Tokenizer
+           │    ├── Token.java        # Token definitions
+           │    └── TokenType.java    # Enum of token types
+           │
+           └── tool/                  # (New) Build tools
+                └── GenerateAst.java  # Script to generate Expr.java
 ````
 
 ## 🚀 How to Build & Run
