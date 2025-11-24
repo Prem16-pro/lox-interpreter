@@ -13,7 +13,9 @@ src/
            │    ├── Lox.java          # Main entry point
            │    ├── Scanner.java      # Tokenizer
            │    ├── Token.java        # Token definitions
-           │    └── TokenType.java    # Enum of token types
+           │    ├── TokenType.java    # Enum of token types
+           │    ├── AstPrinter.java
+           │    └── Parser.java
            │
            └── tool/                  # (New) Build tools
                 └── GenerateAst.java  # Script to generate Expr.java
