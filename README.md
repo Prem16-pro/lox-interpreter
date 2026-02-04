@@ -15,6 +15,8 @@ src/
            │    ├── Token.java        # Token definitions
            │    ├── TokenType.java    # Enum of token types
            │    ├── AstPrinter.java
+           │    ├── Stmt.java
+           │    ├── RuntimeError.java
            │    └── Parser.java
            │
            └── tool/                  # (New) Build tools
@@ -55,7 +57,7 @@ java com.craftinginterpreters.lox.Lox path/to/script.lox
 ## ✅ Current Progress
 
   - [x] **Scanning (Lexical Analysis)**: Converts source code into tokens.
-  - [ ] **Parsing**: Turns tokens into an Abstract Syntax Tree (AST).
+  - [x] **Parsing**: Turns tokens into an Abstract Syntax Tree (AST).
   - [ ] **Static Analysis**: Variable resolution and type checking.
   - [ ] **Interpreting**: Executing the AST.
 
