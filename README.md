@@ -1,69 +1,86 @@
 # jlox - Java Lox Interpreter
 
-A Java implementation of the **Lox** programming language, following the book [*Crafting Interpreters*](https://craftinginterpreters.com/) by Robert Nystrom.
+A Java implementation of the **Lox** programming language, following the book *[Crafting Interpreters](https://craftinginterpreters.com/)* by Robert Nystrom.
 
 ## 📂 Project Structure
+
 The source code is organized inside the `src` directory following standard Java package structure:
+
 ```text
 src/
  └── com/
-      └── craftinginterpreters/
+     └── craftinginterpreters/
            ├── lox/
-           │    ├── Expr.java         # (New) Auto-generated AST classes
-           │    ├── Lox.java          # Main entry point
-           │    ├── Scanner.java      # Tokenizer
-           │    ├── Token.java        # Token definitions
-           │    ├── TokenType.java    # Enum of token types
-           │    ├── AstPrinter.java
-           │    ├── Stmt.java
-           │    ├── RuntimeError.java
-           │    └── Parser.java
+           │   ├── Lox.java           # Main entry point
+           │   ├── Scanner.java       # Lexical analysis
+           │   ├── Token.java         # Token data structure
+           │   ├── TokenType.java     # Token type definitions
+           │   ├── Expr.java          # (Generated) AST nodes for expressions
+           │   ├── Stmt.java          # (Generated) AST nodes for statements
+           │   ├── Parser.java        # Recursive descent parser
+           │   ├── Interpreter.java   # The heart of the execution logic
+           │   ├── Environment.java   # Handles variable bindings and scopes
+           │   ├── RuntimeError.java  # Custom error handling
+           │   └── AstPrinter.java    # Debug utility to visualize the AST
            │
-           └── tool/                  # (New) Build tools
-                └── GenerateAst.java  # Script to generate Expr.java
-````
+           ├──lox_test_files/ test files to check how my jlox runs!
+           └── tool/                  
+               └── GenerateAst.java   # Tool to automate AST class creation
+
+```
 
 ## 🚀 How to Build & Run
 
-**Prerequisite:** Ensure you have Java (JDK) installed.
+**Prerequisite:** Java JDK 8 or higher.
 
-### 1\. Compilation
+### 1. Compilation
 
 Navigate to the `src` folder and compile the package:
 
 ```bash
 cd src
 javac com/craftinginterpreters/lox/*.java
+
 ```
 
-### 2\. Running the REPL
+### 2. Running
 
-To start the interactive prompt (Read-Eval-Print Loop), run the main class without arguments:
-
-```bash
-java com.craftinginterpreters.lox.Lox
-```
-
-*Type Lox code (e.g., `print "hello";`) and press Enter to see the tokens.*
-
-### 3\. Running a Script
-
-To run a specific `.lox` file:
+You can run a script file or enter the REPL:
 
 ```bash
+# Run a file
 java com.craftinginterpreters.lox.Lox path/to/script.lox
+
+# Run the REPL
+java com.craftinginterpreters.lox.Lox
+
 ```
 
-## ✅ Current Progress
+## ✅ Roadmap (jlox)
 
-  - [x] **Scanning (Lexical Analysis)**: Converts source code into tokens.
-  - [x] **Parsing**: Turns tokens into an Abstract Syntax Tree (AST).
-  - [ ] **Static Analysis**: Variable resolution and type checking.
-  - [ ] **Interpreting**: Executing the AST.
+* [x] **Ch 4: Scanning** - Lexical analysis and tokenization.
+* [x] **Ch 5: Representing Code** - Defining the AST and the Visitor pattern.
+* [x] **Ch 6: Parsing Expressions** - Recursive descent parsing.
+* [x] **Ch 7: Evaluating Expressions** - Realizing the interpreter (math, logic).
+* [x] **Ch 8: Statements and State** - Variables, print statements, and block scope.
+* [ ] **Ch 9: Control Flow** - `if` statements and `while`/`for` loops.
+* [ ] **Ch 10: Functions** - Function declarations, calls, and closures.
+* [ ] **Ch 11: Resolving and Binding** - Semantic analysis (static scope).
+* [ ] **Ch 12: Classes** - Instances, methods, and properties.
+* [ ] **Ch 13: Inheritance** - Superclasses and method overriding.
 
-## 📝 Example Code
+## 📝 Example Scoping Test
 
 ```lox
-var language = "Lox";
-print "Hello, " + language;
+var a = "global";
+{
+  var a = "local";
+  print a; // local
+}
+print a; // global
+
 ```
+
+---
+
+Would you like me to generate a **test suite script** you can use to automatically run several `.lox` files at once to verify your progress?
