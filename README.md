@@ -80,7 +80,3 @@ var a = "global";
 print a; // global
 
 ```
-
----
-
-Would you like me to generate a **test suite script** you can use to automatically run several `.lox` files at once to verify your progress?
