@@ -14,8 +14,9 @@ abstract class Expr{
 
  abstract <R> R accept(Visitor<R> visitor);
  static class Assign extends Expr {
- Assign(Token name,Expr value) {
-this.name,Expr = name,Expr;
+ Assign(Token name, Expr value) {
+this.name = name;
+this.value = value;
  }
 
  @Override
@@ -23,7 +24,8 @@ this.name,Expr = name,Expr;
  return visitor.visitAssignExpr(this);
  }
 
- final Token name,Expr value;
+ final Token name;
+ final Expr value;
 }
  static class Binary extends Expr {
  Binary(Expr left, Token operator, Expr right) {
