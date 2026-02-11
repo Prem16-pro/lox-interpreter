@@ -23,7 +23,7 @@ src/
            │   ├── RuntimeError.java  # Custom error handling
            │   └── AstPrinter.java    # Debug utility to visualize the AST
            │
-           ├──lox_test_files/ test files to check how my jlox runs!
+           ├── lox_test_files/ test files to check how my jlox runs!
            └── tool/                  
                └── GenerateAst.java   # Tool to automate AST class creation
 
